@@ -1,0 +1,39 @@
+<div style="padding: 10px;text-align: right;">
+    <button mat-raised-button color="primary" (click)="saveDraft()">Save</button>
+    <span style="margin-right: 10px;"></span>
+    <button mat-raised-button color="primary" (click)="savePublic()">Public</button>
+</div>
+<mat-divider></mat-divider>
+<div class="container" style="margin: 10px;width: 100%;">
+    <div class="row">
+        <div class="col-sm-3">
+            ddd
+        </div>
+        <div class="col-sm-9">
+            <form [formGroup]="form">
+                <p>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Title</mat-label>
+                        <input matInput placeholder="Placeholder" formControlName="post_title">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Textarea</mat-label>
+                        <textarea matInput formControlName="post_memo"></textarea>
+                    </mat-form-field>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="wrapper-content">
+        <div class="docs-viewer">
+            content
+        </div>
+        <div class="table-0f-content">
+            <button mat-raised-button color="primary" class="full-width" (click)=" openDialog()">New content</button>
+        </div>
+    </div>
+</div>

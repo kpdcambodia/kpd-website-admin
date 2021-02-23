@@ -13,6 +13,8 @@ import { TutorialsComponent } from './post/tutorials/tutorials.component';
 import { SoftwaresComponent } from './post/softwares/softwares.component';
 import { SourceProjectComponent } from './post/source-project/source-project.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PostEditorComponent } from './controls/post-editor/post-editor.component';
+import { ContentDialogComponent } from './controls/content-dialog/content-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PostComponent,
     TutorialsComponent,
     SoftwaresComponent,
-    SourceProjectComponent
+    SourceProjectComponent,
+    PostEditorComponent,
+    ContentDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +34,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    NgMaterialModule
-    // HttpClient,
-    // HttpClientModule
+    NgMaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
