@@ -17,4 +17,7 @@ export class PostService {
   getPostTutorial(postid: number):Observable<any> {
     return this.http.post<any>(`${environment.apiURL}/post`, {"name": "getPostTutorial", "appid": 100, "param": {"postid": postid}})
   }
+  getTutorialHeading(postid: number):Observable<any> {
+    return this.http.post<any>(`${environment.apiURL}/post`, {"name": "getTutorialHeading", "appid": 100, "param": {"postid": postid}})
+  }
 }

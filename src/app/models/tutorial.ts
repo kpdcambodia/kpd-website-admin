@@ -1,6 +1,6 @@
 export class Tutorial {
     ID?: number;
-    Subject?: string;
+    Title?: string;
     Memo?: string;
     Thumnail?: string;
     CatID?: number;

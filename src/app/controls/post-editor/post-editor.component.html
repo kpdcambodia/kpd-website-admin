@@ -7,7 +7,7 @@
 <div class="container" style="margin: 10px;width: 100%;">
     <div class="row">
         <div class="col-sm-3">
-            ddd
+            <img [src]="apiURL + '/assets/tutorials/' + post.Thumnail" style="width: 100%;">
         </div>
         <div class="col-sm-9">
             <form [formGroup]="form">
@@ -33,7 +33,9 @@
             content
         </div>
         <div class="table-0f-content">
-            <button mat-raised-button color="primary" class="full-width" (click)=" openDialog()">New content</button>
+            <button mat-raised-button color="primary" class="full-width" (click)=" openDialog()">New Heading</button>
+            <mat-divider></mat-divider>
+            <app-heading></app-heading>
         </div>
     </div>
 </div>

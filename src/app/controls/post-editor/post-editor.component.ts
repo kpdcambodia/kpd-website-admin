@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 import { ContentDialogComponent } from '../content-dialog/content-dialog.component';
 import { Tutorial } from 'src/app/models/tutorial'
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-post-editor',
@@ -16,10 +17,12 @@ export class PostEditorComponent implements OnInit {
   postid: number | any
   form: FormGroup
   post: Tutorial = {}
+  apiURL: any;
   constructor(private dialog: MatDialog, private route: ActivatedRoute, private router: Router, private postService: PostService, private fb: FormBuilder) { 
+    this.apiURL = environment.apiURL
     this.form = this.fb.group({
-      post_title: [this.post.Subject, Validators.required],
-      post_memo: [this.post.Memo, Validators.required]
+      post_title: [null, Validators.required],
+      post_memo: [null, Validators.required]
     })
   }
 
@@ -31,7 +34,7 @@ export class PostEditorComponent implements OnInit {
         (rs)=>{
           this.post = rs['response'].data.post
           //
-          this.form.controls['post_title'].setValue(this.post.Subject)
+          this.form.controls['post_title'].setValue(this.post.Title)
           this.form.controls['post_memo'].setValue(this.post.Memo)
         }
       )

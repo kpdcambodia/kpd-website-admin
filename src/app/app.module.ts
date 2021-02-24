@@ -15,6 +15,7 @@ import { SourceProjectComponent } from './post/source-project/source-project.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostEditorComponent } from './controls/post-editor/post-editor.component';
 import { ContentDialogComponent } from './controls/content-dialog/content-dialog.component';
+import { HeadingComponent } from './controls/heading/heading.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ContentDialogComponent } from './controls/content-dialog/content-dialog
     SoftwaresComponent,
     SourceProjectComponent,
     PostEditorComponent,
-    ContentDialogComponent
+    ContentDialogComponent,
+    HeadingComponent
   ],
   imports: [
     BrowserModule,
