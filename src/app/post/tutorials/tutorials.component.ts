@@ -14,7 +14,7 @@ export class TutorialsComponent implements OnInit {
   }
 
   newPost() {
-    this.router.navigate(['/post-editor/0'])
+    this.router.navigate(['/post-editor'])
   }
 
 }

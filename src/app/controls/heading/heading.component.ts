@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -8,15 +8,11 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class HeadingComponent implements OnInit {
 
-  heading: any
-  constructor(private postService: PostService) { }
+  @Input() heading: any
+  constructor() { }
 
-  ngOnInit(): void {
-    this.postService.getTutorialHeading(15).subscribe(
-      (rs)=>{
-        this.heading = rs['response'].data.heading
-      }
-    )
+  ngOnInit():void {
+   
   }
 
 }

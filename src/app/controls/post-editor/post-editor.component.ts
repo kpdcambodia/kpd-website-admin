@@ -10,24 +10,18 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-post-editor',
   templateUrl: './post-editor.component.html',
-  styleUrls: ['./post-editor.component.css']
+  styleUrls: ['./post-editor.component.css'],
+  providers: [PostService]
 })
 export class PostEditorComponent implements OnInit {
 
-  postid: number | any
+  postid: number
   form: FormGroup
   post: Tutorial = {}
   apiURL: any;
+  heading: any
   constructor(private dialog: MatDialog, private route: ActivatedRoute, private router: Router, private postService: PostService, private fb: FormBuilder) { 
-    this.apiURL = environment.apiURL
-    this.form = this.fb.group({
-      post_title: [null, Validators.required],
-      post_memo: [null, Validators.required]
-    })
-  }
-
-  ngOnInit(): void {
-    this.postid = +this.route.snapshot.params['id']
+    this.postid = this.route.snapshot.params['id'] ? +this.route.snapshot.params['id'] : 0    
 
     if(this.postid!=0){
       this.postService.getPostTutorial(this.postid).subscribe(
@@ -36,9 +30,21 @@ export class PostEditorComponent implements OnInit {
           //
           this.form.controls['post_title'].setValue(this.post.Title)
           this.form.controls['post_memo'].setValue(this.post.Memo)
+
+          this.heading = rs['response'].data.heading
         }
       )
     }
+
+    this.apiURL = environment.apiURL
+    this.form = this.fb.group({
+      post_title: [null, Validators.required],
+      post_memo: [null, Validators.required]
+    })
+  }
+
+  ngOnInit(): void {
+    
   }
 
   savePublic() {
@@ -61,6 +67,9 @@ export class PostEditorComponent implements OnInit {
           (rs)=>{
             if(this.postid==0){
               this.router.navigate([`/post-editor/${rs['response'].data}`])
+            }
+            else{
+              this.heading = rs['response'].data.heading
             }
           }
         )

@@ -7,7 +7,7 @@
 <div class="container" style="margin: 10px;width: 100%;">
     <div class="row">
         <div class="col-sm-3">
-            <img [src]="apiURL + '/assets/tutorials/' + post.Thumnail" style="width: 100%;">
+            <img [src]="apiURL + '/assets/tutorials/' + post.Thumnail" style="width: 100%;" *ngIf="post.Thumnail">
         </div>
         <div class="col-sm-9">
             <form [formGroup]="form">
@@ -30,12 +30,12 @@
 <div class="wrapper">
     <div class="wrapper-content">
         <div class="docs-viewer">
-            content
+           <router-outlet></router-outlet>
         </div>
         <div class="table-0f-content">
             <button mat-raised-button color="primary" class="full-width" (click)=" openDialog()">New Heading</button>
             <mat-divider></mat-divider>
-            <app-heading></app-heading>
+            <app-heading [heading]="heading"></app-heading>
         </div>
     </div>
 </div>

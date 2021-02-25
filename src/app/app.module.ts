@@ -16,6 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostEditorComponent } from './controls/post-editor/post-editor.component';
 import { ContentDialogComponent } from './controls/content-dialog/content-dialog.component';
 import { HeadingComponent } from './controls/heading/heading.component';
+import { HeadingContentComponent } from './controls/heading-content/heading-content.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { HeadingComponent } from './controls/heading/heading.component';
     SourceProjectComponent,
     PostEditorComponent,
     ContentDialogComponent,
-    HeadingComponent
+    HeadingComponent,
+    HeadingContentComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { HeadingComponent } from './controls/heading/heading.component';
     ReactiveFormsModule,
     FormsModule,
     NgMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

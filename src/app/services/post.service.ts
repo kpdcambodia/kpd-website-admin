@@ -17,7 +17,12 @@ export class PostService {
   getPostTutorial(postid: number):Observable<any> {
     return this.http.post<any>(`${environment.apiURL}/post`, {"name": "getPostTutorial", "appid": 100, "param": {"postid": postid}})
   }
-  getTutorialHeading(postid: number):Observable<any> {
-    return this.http.post<any>(`${environment.apiURL}/post`, {"name": "getTutorialHeading", "appid": 100, "param": {"postid": postid}})
+ 
+  getTutorialHeadingContent(postid: number, heading: string):Observable<any> {
+    return this.http.post<any>(`${environment.apiURL}/post`, {"name": "getTutorialHeadingContent", "appid": 100, "param": {"postid": postid, "heading": heading}})
+  }
+
+  saveContent(postid: number, heading: string, data: string):Observable<any> {
+    return this.http.post<any>(`${environment.apiURL}/post`, {"name": "saveContent", "appid": 100, "param": {"postid": postid, "heading": heading, "data": data}})
   }
 }

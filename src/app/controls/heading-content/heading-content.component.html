@@ -1,0 +1,10 @@
+<div class="document-editor">
+    <div class="document-editor__toolbar"></div>
+    <div class="document-editor__editable-container">
+        <div class="document-editor__editable">
+            <ckeditor [editor]="Editor" [(ngModel)]="data" (ready)="onReady($event)"></ckeditor>
+        </div>
+    </div>
+</div>
+<mat-divider style="margin: 10px auto;"></mat-divider>
+<button mat-flat-button color="primary" (click)="saveContent()">Save</button>

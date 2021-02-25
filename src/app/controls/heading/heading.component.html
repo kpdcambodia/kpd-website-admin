@@ -1,5 +1,5 @@
 <mat-selection-list #shoes [multiple]="false">
-    <mat-list-option *ngFor="let shoe of heading" [value]="shoe.ID">
+    <mat-list-option *ngFor="let shoe of heading" [routerLink]="['heading/' + shoe.heading]">
       {{shoe.heading}}
     </mat-list-option>
 </mat-selection-list>
