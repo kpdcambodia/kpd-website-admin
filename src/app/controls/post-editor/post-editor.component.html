@@ -7,7 +7,8 @@
 <div class="container" style="margin: 10px;width: 100%;">
     <div class="row">
         <div class="col-sm-3">
-            <img [src]="apiURL + '/assets/tutorials/' + post.Thumnail" style="width: 100%;" *ngIf="post.Thumnail">
+            <button mat-raised-button color="primary" class="full-width" (click)="cropImage()">Upload</button>
+            <img [src]="cropimg ? cropimg : apiURL + '/assets/tutorials/' + post.Thumnail" style="width: 100%;" *ngIf="post.Thumnail || cropimg">
         </div>
         <div class="col-sm-9">
             <form [formGroup]="form">
@@ -33,7 +34,7 @@
            <router-outlet></router-outlet>
         </div>
         <div class="table-0f-content">
-            <button mat-raised-button color="primary" class="full-width" (click)=" openDialog()">New Heading</button>
+            <button mat-raised-button color="primary" class="full-width" (click)="openDialog()">New Heading</button>
             <mat-divider></mat-divider>
             <app-heading [heading]="heading"></app-heading>
         </div>

@@ -1,0 +1,16 @@
+<input mat-flat-button type="file" (change)="fileChangeEvent($event)" />
+<image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="4 / 2"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (cropperReady)="cropperReady()"
+    (loadImageFailed)="loadImageFailed()"
+    style="max-width: 500px;"
+></image-cropper>
+<mat-divider></mat-divider>
+<div align="end">
+    <button mat-raised-button color="primary" [mat-dialog-close]="croppedImage">Crop</button>
+</div>

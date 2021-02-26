@@ -3,3 +3,9 @@ declare module '@ckeditor/ckeditor5-build-decoupled-document' { // or other CKEd
 
 	export = ClassicEditorBuild;
 }
+
+declare module 'src/ckeditor/SimpleUploadAdapter' { 
+	const MyCustomUploadAdapterPlugin: any;
+
+	export = MyCustomUploadAdapterPlugin;
+}

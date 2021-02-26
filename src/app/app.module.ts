@@ -18,6 +18,8 @@ import { ContentDialogComponent } from './controls/content-dialog/content-dialog
 import { HeadingComponent } from './controls/heading/heading.component';
 import { HeadingContentComponent } from './controls/heading-content/heading-content.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { CropImageComponent } from './controls/crop-image/crop-image.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     PostEditorComponent,
     ContentDialogComponent,
     HeadingComponent,
-    HeadingContentComponent
+    HeadingContentComponent,
+    CropImageComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     FormsModule,
     NgMaterialModule,
     HttpClientModule,
-    CKEditorModule
+    CKEditorModule,
+    ImageCropperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

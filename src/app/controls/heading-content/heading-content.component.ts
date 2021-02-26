@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { CKEditor5 } from '@ckeditor/ckeditor5-angular';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import * as MyCustomUploadAdapterPlugin  from 'src/ckeditor/SimpleUploadAdapter'
 
 @Component({
   selector: 'app-heading-content',
@@ -19,8 +21,10 @@ export class HeadingContentComponent implements OnInit {
   sub2: any
 
   public Editor = DecoupledEditor;
-
-  constructor(private postService: PostService, private route: ActivatedRoute) { 
+  edidtorConfig = {
+    extraPlugins: [MyCustomUploadAdapterPlugin]
+  }
+  constructor(private postService: PostService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { 
   }
 
   public onReady( editor: CKEditor5.Editor ) {
@@ -45,10 +49,18 @@ export class HeadingContentComponent implements OnInit {
 
   saveContent() {
     this.postService.saveContent(this.postid, this.headng, this.data).subscribe(rs=>{
-      console.log(rs);
-      
+      if(rs['response'].status){
+        this.openSnackBar('Your content has been saved!.', '')
+      }
     })
   }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
+
   ngOnDestroy(): void {
     this.sub.unsubscribe()
     this.sub2.unsubscribe()

@@ -6,6 +6,7 @@ import { PostService } from 'src/app/services/post.service';
 import { ContentDialogComponent } from '../content-dialog/content-dialog.component';
 import { Tutorial } from 'src/app/models/tutorial'
 import { environment } from 'src/environments/environment';
+import { CropImageComponent } from '../crop-image/crop-image.component';
 
 @Component({
   selector: 'app-post-editor',
@@ -20,6 +21,7 @@ export class PostEditorComponent implements OnInit {
   post: Tutorial = {}
   apiURL: any;
   heading: any
+  cropimg: any
   constructor(private dialog: MatDialog, private route: ActivatedRoute, private router: Router, private postService: PostService, private fb: FormBuilder) { 
     this.postid = this.route.snapshot.params['id'] ? +this.route.snapshot.params['id'] : 0    
 
@@ -62,7 +64,7 @@ export class PostEditorComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result){
-        const postdata =  {...this.form.value, ...result, ...{postid: this.postid}}        
+        const postdata =  {...this.form.value, ...result, ...{postid: this.postid}, ...{cropimage: this.cropimg}}        
         this.postService.createContentTutorial(postdata).subscribe(
           (rs)=>{
             if(this.postid==0){
@@ -73,6 +75,18 @@ export class PostEditorComponent implements OnInit {
             }
           }
         )
+      }
+    });
+  }
+
+  cropImage(): void {
+    const dialogRef = this.dialog.open(CropImageComponent, {
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.cropimg = result
       }
     });
   }
