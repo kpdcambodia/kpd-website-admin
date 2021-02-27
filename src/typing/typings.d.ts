@@ -7,5 +7,10 @@ declare module '@ckeditor/ckeditor5-build-decoupled-document' { // or other CKEd
 declare module 'src/ckeditor/SimpleUploadAdapter' { 
 	const MyCustomUploadAdapterPlugin: any;
 
-	export = MyCustomUploadAdapterPlugin;
+	export default MyCustomUploadAdapterPlugin
+}
+declare module 'ckeditor5-image-remove-event-callback-plugin' {
+	const ImageRemoveEventCallbackPlugin: any
+
+	export default ImageRemoveEventCallbackPlugin
 }

@@ -4,7 +4,8 @@ import { PostService } from 'src/app/services/post.service';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { CKEditor5 } from '@ckeditor/ckeditor5-angular';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import * as MyCustomUploadAdapterPlugin  from 'src/ckeditor/SimpleUploadAdapter'
+import MyCustomUploadAdapterPlugin from 'src/ckeditor/SimpleUploadAdapter';
+import ImageRemoveEventCallbackPlugin from 'ckeditor5-image-remove-event-callback-plugin';
 
 @Component({
   selector: 'app-heading-content',
@@ -21,7 +22,7 @@ export class HeadingContentComponent implements OnInit {
   sub2: any
 
   public Editor = DecoupledEditor;
-  edidtorConfig = {
+  config = {
     extraPlugins: [MyCustomUploadAdapterPlugin]
   }
   constructor(private postService: PostService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { 
@@ -32,6 +33,14 @@ export class HeadingContentComponent implements OnInit {
       editor.ui.view.toolbar.element,
       editor.ui.getEditableElement()
     );
+
+    editor.on('afterUndoImage', function( e ){ 
+      console.log(333);
+     } )
+     editor.on('afterCommandExec', function( e ){ 
+       console.log(555);
+       
+      } )
   }
 
   ngOnInit(): void {

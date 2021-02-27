@@ -1,5 +1,5 @@
 import { environment } from 'src/environments/environment';
-export function MyCustomUploadAdapterPlugin( editor ) {
+export default function MyCustomUploadAdapterPlugin( editor ) {
     editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
         return new MyUploadAdapter( loader );
     };
@@ -11,7 +11,7 @@ class MyUploadAdapter {
         this.loader = loader;
 
         // URL where to send files.
-        this.url = `${environment.apiURL}/images-host/uploads.php`;
+        this.url = `${environment.apiURL}/uploads`;
     }
 
     // Starts the upload process.
