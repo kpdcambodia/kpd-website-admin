@@ -1,11 +1,10 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { CKEditor5 } from '@ckeditor/ckeditor5-angular';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import MyCustomUploadAdapterPlugin from 'src/ckeditor/SimpleUploadAdapter';
-import ImageRemoveEventCallbackPlugin from 'ckeditor5-image-remove-event-callback-plugin';
 
 @Component({
   selector: 'app-heading-content',

@@ -9,8 +9,3 @@ declare module 'src/ckeditor/SimpleUploadAdapter' {
 
 	export default MyCustomUploadAdapterPlugin
 }
-declare module 'ckeditor5-image-remove-event-callback-plugin' {
-	const ImageRemoveEventCallbackPlugin: any
-
-	export default ImageRemoveEventCallbackPlugin
-}

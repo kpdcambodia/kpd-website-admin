@@ -8,6 +8,7 @@ import { SourceProjectComponent } from './post/source-project/source-project.com
 import { TutorialsComponent } from './post/tutorials/tutorials.component';
 
 const routes: Routes = [
+  {path: "", redirectTo: "/home", pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
   { path: 'tutorials', component: TutorialsComponent },
   { path: 'sources', component: SourceProjectComponent },
