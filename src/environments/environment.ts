@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiURL: 'https://kpdcambodia.com/api'
+  //apiURL: 'https://kpdcambodia.com/api',
+  apiURL: 'http://localhost/Dropbox/kpd-website-api'
 };
 
 /*

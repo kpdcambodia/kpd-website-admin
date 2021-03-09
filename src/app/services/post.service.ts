@@ -25,4 +25,12 @@ export class PostService {
   saveContent(postid: number, heading: string, data: string):Observable<any> {
     return this.http.post<any>(`${environment.apiURL}/post`, {"name": "saveContent", "appid": 100, "param": {"postid": postid, "heading": heading, "data": data}})
   }
+
+  postedTutorials():Observable<any> {
+    return this.http.post<any>(`${environment.apiURL}/post`, {"name": "postedTutorials", "appid": 100, "param": {"postid": null}})
+  }
+
+  draftTutorials():Observable<any> {
+    return this.http.post<any>(`${environment.apiURL}/post`, {"name": "draftTutorials", "appid": 100, "param": {"postid": null}})
+  }
 }
