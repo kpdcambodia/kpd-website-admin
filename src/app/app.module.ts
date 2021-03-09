@@ -20,6 +20,7 @@ import { HeadingContentComponent } from './controls/heading-content/heading-cont
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { CropImageComponent } from './controls/crop-image/crop-image.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { CropImageComponent } from './controls/crop-image/crop-image.component';
     CKEditorModule,
     ImageCropperModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,6 +21,7 @@ export class TutorialsComponent implements OnInit {
       this.postService.postedTutorials().subscribe(
         (rs)=>{
           this.postedData = rs['response'].data
+          console.log(this.postedData)
         }
       )
     }

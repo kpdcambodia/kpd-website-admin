@@ -1,0 +1,12 @@
+.docs-tutorials-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+}
+.docs-tutorials-list-item {
+    display: inline-block;
+    margin: 20px;
+    vertical-align: top;
+    width: 280px;
+}
